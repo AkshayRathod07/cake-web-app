@@ -1,10 +1,15 @@
-const express = require('express')
+const  express = require('express')
+const app = express()
 const ejs = require('ejs');
 const expressLayout = require('express-ejs-layouts');
 const path = require('path');
-
-const app = express()
 const PORT = process.env.PORT || 3000
+
+
+
+// assets
+app.use(express.static('public'))
+// app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
     res.render('home')
