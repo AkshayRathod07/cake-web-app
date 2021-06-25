@@ -1,49 +1,80 @@
 @import "./variabels";
 
-body{
-    font-family: 'Lato', sans-serif;
-    -webkit-font-smoothing:antialiased;
-    color: $dark;
+@import "~toastr/toastr.scss";
+
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $dark;
 }
-nav li:last-child a{
-    &:hover{
-        background-color: $primary-hover;
-    }
-    background-color: $primary;
+nav li:last-child a {
+  &:hover {
+    background-color: $primary-hover;
+  }
+  background-color: $primary;
 }
 
-nav li a{
-    
-    &:hover{
-        color: $primary;
-    }
-    transition: $smooth;
-    -webkit-transition: $smooth;
-    -moz-transition: $smooth;
-    -ms-transition: $smooth;
-    -o-transition: $smooth;
-}
-
-section.hero{
-    background-color: $secondary;
-}
-
-.size{
-    background: $secondary;
-}
-
-.add-to-cart{
-    border: 2px solid $primary;
+nav li a {
+  &:hover {
     color: $primary;
-    transition: $smooth;
-    -webkit-transition: $smooth;
-    -moz-transition: $smooth;
-    -ms-transition: $smooth;
-    -o-transition: $smooth;
-    &:hover{
-        background-color: $primary;
-        color: $pure;
-       
-        border-color: $pure;
+  }
+  transition: $smooth;
+  -webkit-transition: $smooth;
+  -moz-transition: $smooth;
+  -ms-transition: $smooth;
+  -o-transition: $smooth;
 }
+
+section.hero {
+  background-color: $secondary;
+}
+
+.size {
+  background: $secondary;
+}
+
+.add-to-cart {
+  border: 2px solid $primary;
+  color: $primary;
+  transition: $smooth;
+  -webkit-transition: $smooth;
+  -moz-transition: $smooth;
+  -ms-transition: $smooth;
+  -o-transition: $smooth;
+  &:hover {
+    background-color: $primary;
+    color: $pure;
+
+    border-color: $pure;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  &:hover {
+    background: $primary-hover;
+  }
+  transition: $smooth;
+  -webkit-transition: $smooth;
+  -moz-transition: $smooth;
+  -ms-transition: $smooth;
+  -o-transition: $smooth;
+}
+
+section.cart {
+  background: $secondary;
+  .amount {
+    color: $primary;
+  }
+}
+
+.custom-input {
+  &:focus {
+    outline: none;
+  }
+}
+
+section.login {
+  background: $secondary;
+  min-height: calc(100vh - 86px);
 }

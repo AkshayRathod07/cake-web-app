@@ -1,0 +1,74 @@
+[{
+    "_id": {
+      "$oid": "5eee651f739f8c674fd736ee"
+    },
+    "name": "Bahubali Thali",
+    "image": "thali3.jpg",
+    "price": "500",
+    "size": "Medium"
+  },{
+    "_id": {
+      "$oid": "5eee6671a27a66807cf2bea3"
+    },
+    "name": "veg Thali",
+    "image": "thali4.jpg",
+    "price": "500",
+    "size": "Medium"
+  },{
+    "_id": {
+      "$oid": "5eee6692a27a66808cf2bea4"
+    },
+    "name": "Mutton Thali",
+    "image": "thali5.png",
+    "price": "500",
+    "size": "Medium"
+  },{
+    "_id": {
+      "$oid": "5eee66a5a27a66807cf2be65"
+    },
+    "name": "Fish Thali",
+    "image": "thali6.jpg",
+    "price": "500",
+    "size": "Medium"
+  },{
+    "_id": {
+      "$oid": "5eee66c4a27a66807cf2b456"
+    },
+    "name": "Mutton Fish Thali",
+    "image": "thali7.png",
+    "price": "500",
+    "size": "Medium"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73625e"
+    },
+    "name": "Bahubali Thali",
+    "image": "thali3.png",
+    "price": "1000",
+    "size": "Large"
+  },{
+    "_id": {
+      "$oid": "5eee6671a27a66807cf2be13"
+    },
+    "name": "veg Thali",
+    "image": "thali4.png",
+    "price": "1000",
+    "size": "Large"
+  },{
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2be45"
+    },
+    "name": "Mutton Thali",
+    "image": "thali5.png",
+    "price": "1000",
+    "size": "Large"
+  },{
+    "_id": {
+      "$oid": "5eee66a5a27a66807cf2be25"
+    },
+    "name": "Fish Thali",
+    "image": "thali6.png",
+    "price": "1000",
+    "size": "Large"
+  }]

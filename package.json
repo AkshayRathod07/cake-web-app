@@ -6,19 +6,26 @@
   "author": "akshay rathod",
   "scripts": {
     "dev": "nodemon server.js",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "development": "mix",
+    "watch": "npx mix watch",
+    "production": "npx mix --production"
   },
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.12.14",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "laravel-mix": "5.0.4",
+    "laravel-mix": "^6.0.25",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.35.1",
     "sass-loader": "^8.0.2",

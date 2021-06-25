@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cake shop</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- tailwind css -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- custom  css -->
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+
+  <body>
+    <nav class="container mx-auto flex justify-between py-4">
+      <div>
+        <a href="/">
+          <img src="/img/img/logo.png" alt="logo" />
+        </a>
+      </div>
+      <div>
+        <ul class="flex tex items-center">
+          <li class="ml-6 font-bold"><a href="/">Menu</a></li>
+          <li class="ml-6 font-bold"><a href="/offer">Offer</a></li>
+          <li class="ml-6 font-bold"><a href="/register">Register</a></li>
+          <li class="ml-6 font-bold"><a href="/login">login</a></li>
+          <li class="ml-6 font-bold">
+            <a
+              href="/cart"
+              class="inline-block flex items-center px-4 py-2 rounded-full"
+            >
+              <span class="text-white font-bold pr-2" id="cart-counter">
+                <%= session.cart ? session.cart.totalQty : '' %>
+              </span>
+
+              <img src="/img/img/cart.png" alt="" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <%- body %>
+
+    <!-- custom js -->
+    <script src="/js/app.js"></script>
+  </body>
+</html>
