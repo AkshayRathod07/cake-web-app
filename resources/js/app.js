@@ -1,5 +1,7 @@
 import axios from "axios";
 import toastr from "toastr";
+
+
 const addToCart = document.querySelectorAll(".add-to-cart");
 const cartCounter = document.querySelector("#cart-counter");
 

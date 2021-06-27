@@ -31,8 +31,15 @@
         <ul class="flex tex items-center">
           <li class="ml-6 font-bold"><a href="/">Menu</a></li>
           <li class="ml-6 font-bold"><a href="/offer">Offer</a></li>
+          <% if(user) { %>
+          <li class="ml-6 font-bold">
+            <form action="/logout" method="POST" id="logout">
+              <a href="#" onclick=" document.getElementById('logout').submit() " >Logout</a></li>
+            </form>
+          <% }else{ %>
           <li class="ml-6 font-bold"><a href="/register">Register</a></li>
           <li class="ml-6 font-bold"><a href="/login">login</a></li>
+          <% } %>
           <li class="ml-6 font-bold">
             <a
               href="/cart"
