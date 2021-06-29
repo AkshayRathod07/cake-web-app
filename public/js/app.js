@@ -1862,7 +1862,7 @@ function updateCart(cake) {
       positionClass: "toast-top-right",
       showDuration: "300",
       hideDuration: "1000",
-      timeOut: "5000",
+      timeOut: "3000",
       extendedTimeOut: "1000"
     };
   })["catch"](function (err) {
