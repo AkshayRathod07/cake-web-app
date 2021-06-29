@@ -14,10 +14,10 @@ function orderController() {
       }
       
       const order = new Order({
-        // customerId: req.user._id,
-        // items: req.session.cart.items,
-        // phone,
-        // address,
+        customerId: req.user._id,
+        items: req.session.cart.items,
+        phone,
+        address,
         customerId:req.user._id,
         items: req.session.cart.items,
 
@@ -26,13 +26,12 @@ function orderController() {
       }) 
 
         order.save().then(result =>{
-        // req.flash('success','Order placed successfully')
-        // return res.redirect('/')
+        req.flash('success','Order placed successfully')
+        return res.redirect('/')
         console.log("op gg");
       }).catch(err =>{
-        // req.flash('error',"Something went wrong")
-        // return res.redirect('/cart')
-        console.log("fuck you");
+        req.flash('error',"Something went wrong")
+        return res.redirect('/cart')
       })
 
     }
