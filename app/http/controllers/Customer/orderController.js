@@ -1,14 +1,14 @@
-// const { rawListeners } = require('../../../models/order');
-const Order =  require('../../../models/order')
 
-// debugger
+const Order =  require('../../../models/order')
+const moment = require('moment')
+
 
 function orderController() {
   return {
     store(req, res) {
       // Validate request
-      const { phone, number } = req.body;
-      if (!phone || !number) {
+      const { phone, address } = req.body;
+      if (!phone || !address) {
         req.flash("error", "All fields are required");
         return res.redirect("/cart");
       }
@@ -17,32 +17,30 @@ function orderController() {
         customerId: req.user._id,
         items: req.session.cart.items,
         phone,
-        address,
-        customerId:req.user._id,
-        items: req.session.cart.items,
-
-        phone: 9022048911,
-        address: 'dhayri pune' 
+        address
       }) 
 
         order.save().then(result =>{
         req.flash('success','Order placed successfully')
-        return res.redirect('/')
-        console.log("op gg");
+        delete req.session.cart
+        return res.redirect('/customer/orders')
       }).catch(err =>{
         req.flash('error',"Something went wrong")
         return res.redirect('/cart')
       })
 
-    }
+      
 
-    // async index(req,res) {
-    //   const orders = await Order.find({customerId: req.user._id})
-    //   console.log(orders);
-    // }
+    },
+
+    async index(req,res) {
+      const orders = await Order.find({customerId: req.user._id},null,{sort:{'createdAt': -1}})
+      res.header('Cache-Control', 'no-store')
+      res.render('Customer/orders',{orders:orders, moment:moment})
+      // console.log(orders);
+    }
   }
 }
-
 module.exports = orderController
 
 

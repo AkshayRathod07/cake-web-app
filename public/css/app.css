@@ -295,3 +295,7 @@ section.login {
   background: #f8f8f8;
   min-height: calc(100vh - 86px);
 }
+
+a.link {
+  color: #FE5F1E;
+}

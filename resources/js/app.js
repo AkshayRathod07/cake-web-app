@@ -1,6 +1,6 @@
 import axios from "axios";
 import toastr from "toastr";
-
+import initAdmin from "./admin"
 
 const addToCart = document.querySelectorAll(".add-to-cart");
 const cartCounter = document.querySelector("#cart-counter");
@@ -43,4 +43,16 @@ addToCart.forEach((btn) => {
   });
 });
 
-console.log("hey dude");
+
+// Remove alert message after 2 second
+const alertBtn = document.getElementById('success-alert')
+
+if(alertBtn){
+  setTimeout(()=>{
+    alertBtn.remove()
+  },2000)
+}
+
+
+// admin js
+initAdmin()

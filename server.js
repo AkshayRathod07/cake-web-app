@@ -54,17 +54,17 @@ passportInit(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-
 app.use(flash());
+
 
 //  telling express data types
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+  
 // assets
 app.use(express.static("public"));
+
+
 
 // Global middleware
 app.use((req, res, next) => {
