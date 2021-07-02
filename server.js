@@ -10,6 +10,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
+const Emitter = require('events')
 
 // MongoDbStore(session)
 
@@ -33,6 +34,11 @@ connection
     console.log("connection failed..");
   });
 
+// Event emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter',eventEmitter)
+
+
  // session config
 app.use(
   session({
@@ -48,7 +54,8 @@ app.use(
 ); 
 
 //   passport config
-const passportInit = require('./app/config/passport')
+const passportInit = require('./app/config/passport');
+const { Socket } = require("dgram");
 passportInit(passport);
 
 app.use(passport.initialize());
@@ -83,6 +90,26 @@ app.set("view engine", "ejs");
 // route
 require("./routes/web")(app);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`server is started successfully on ports ${PORT}`);
 });
+
+const io = require('socket.io')(server)
+
+
+io.on('connection',(socket)=>{
+  // join
+  // console.log(socket.id);
+  socket.on('join',(roomName)=>{
+    // console.log(roomName);
+    socket.join(roomName)
+  })
+})
+
+eventEmitter.on('orderUpdated',(data)=>{
+  io.to(`order_${data.id}`).emit('orderUpdated',data)
+})
+
+eventEmitter.on('orderPlaced',(data)=>{
+  io.to('adminRoom').emit('orderPlaced',data)
+})

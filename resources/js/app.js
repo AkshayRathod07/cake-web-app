@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import toastr from "toastr";
 import initAdmin from "./admin"
 
@@ -13,12 +14,11 @@ function updateCart(cake) {
     toastr.options = {
       closeButton: true,
 
-      progressBar: true,
+      progressBar: false,
       positionClass: "toast-top-right",
       showDuration: "300",
       hideDuration: "1000",
-      timeOut: "3000",
-      extendedTimeOut: "1000",
+      timeOut: "1000",
     };
   }).catch( (err) =>{
     toastr["error"]("Something went wrong");
@@ -29,7 +29,7 @@ function updateCart(cake) {
         positionClass: "toast-top-right",
         showDuration: "300",
         hideDuration: "1000",
-        timeOut: "5000",
+        timeOut: "1000",
         extendedTimeOut: "1000",
       };
 
@@ -54,5 +54,83 @@ if(alertBtn){
 }
 
 
+
+
+// change order status
+let statuses = document.querySelectorAll(".status_line")
+// console.log(statuses);
+let hiddenInput = document.getElementById("hiddenInput");
+let order = hiddenInput ? hiddenInput.value : null
+ order = JSON.parse(order);
+ let time =  document.createElement('small')
+
+console.log(order);
+
+function updateStatus(order){
+  statuses.forEach((status)=>{
+    status.classList.remove('step-completed')
+    status.classList.remove('current')
+  })
+
+  let stepCompleted = true
+  statuses.forEach((status)=>{
+    let dataProp = status.dataset.status
+
+    if(stepCompleted){
+      status.classList.add('step-completed')
+    }
+
+    if(dataProp === order.status ){
+
+      stepCompleted = false
+      time.innerText = moment(order.updatedAt).format('hh:mm A')
+      status.appendChild(time)
+      if(status.nextElementSibling){
+        status.nextElementSibling.classList.add('current')
+
+      }
+    }
+
+  })
+
+}
+
+updateStatus(order);
+
+
+// socket
+let socket = io()
 // admin js
-initAdmin()
+initAdmin(socket)
+// join
+
+if(order){
+  socket.emit('join',`order_${order._id}`)
+}
+
+let adminPath = window.location.pathname
+// console.log(adminPath);
+if(adminPath.includes('admin')){
+  socket.emit('join','adminRoom')
+}
+
+
+
+socket.on('orderUpdated',(data)=>{
+  const updatedOrder = {...order}
+  updatedOrder.updatedAt = moment().format()
+  updatedOrder.status = data.status
+  updateStatus(updatedOrder)
+  toastr["success"]("Order updated");
+    toastr.options = {
+      closeButton: true,
+
+      progressBar: false,
+      positionClass: "toast-top-right",
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "1000",
+      extendedTimeOut: "1000",
+    };
+  // console.log(data);
+})
