@@ -6,6 +6,7 @@
   "author": "akshay rathod",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node server.js",
     "development": "mix",
     "watch": "npx mix watch",
     "production": "npx mix --production"
