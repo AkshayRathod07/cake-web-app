@@ -229,7 +229,7 @@ body {
 }
 
 nav li:last-child a {
-  background-color: #FE5F1E;
+  background-color: #43adb1;
 }
 nav li:last-child a:hover {
   background-color: #b23301;
@@ -243,7 +243,7 @@ nav li a {
   -o-transition: all 0.3s ease-in-out;
 }
 nav li a:hover {
-  color: #FE5F1E;
+  color: #43adb1;
 }
 
 section.hero {
@@ -269,8 +269,8 @@ section.hero {
 }
 
 .add-to-cart {
-  border: 2px solid #FE5F1E;
-  color: #FE5F1E;
+  border: 2px solid #43adb1;
+  color: #43adb1;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -278,13 +278,13 @@ section.hero {
   -o-transition: all 0.3s ease-in-out;
 }
 .add-to-cart:hover {
-  background-color: #FE5F1E;
+  background-color: #43adb1;
   color: #fff;
   border-color: #fff;
 }
 
 .btn-primary {
-  background-color: #FE5F1E;
+  background-color: #43adb1;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -299,7 +299,7 @@ section.cart {
   background: #f8f8f8;
 }
 section.cart .amount {
-  color: #FE5F1E;
+  color: #43adb1;
 }
 
 .custom-input:focus {
@@ -312,7 +312,7 @@ section.login {
 }
 
 a.link {
-  color: #FE5F1E;
+  color: #43adb1;
 }
 
 section.status {
@@ -409,11 +409,11 @@ section.status {
 }
 
 .status-box ul li.current span {
-  color: #FE5F1E;
+  color: #43adb1;
 }
 
 .status-box ul li.current span:after {
-  background: #FE5F1E;
+  background: #43adb1;
 }
 
 .status-box ul li small {
